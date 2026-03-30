@@ -1,0 +1,123 @@
+Fix the animation so the scene timing matches the voiceover exactly.
+
+The current issue is that the visual scenes do not align with the spoken pacing. Rebuild the animation timeline based on the voiceover sections below. Each section should have visuals that match the topic and duration of that spoken part.
+
+Important rules:
+- Use the voiceover timing as the main structure.
+- Longer sections should be full scenes.
+- Shorter sections should usually be highlights, reveals, or small transitions inside the current scene.
+- Do not make every segment a completely different scene.
+- Keep the style clean, modern, infographic-based, calm, and easy to understand.
+- The audience is parents, so the animation should feel reassuring, organized, and clear.
+- Use smooth transitions, short readable text, icons, cards, arrows, checkmarks, and progress indicators.
+- Keep text short and on-screen long enough to read.
+- Make the pacing feel synchronized with the voice.
+- Remove visual moments that feel too long after the spoken point has already moved on.
+
+Use this exact timeline structure:
+
+1. 0.00–3.49
+Show the intro.
+Display the main title and a calm opening visual.
+Use a soft fade-in.
+
+2. 3.98–8.58
+Show the overall process overview.
+Display a simple flow of the full registration process with a few steps.
+This is an orientation scene, not detailed explanation yet.
+
+3. 9.26–12.39
+Show the beginning of the process.
+Highlight the first step.
+Make it visually clear that this is where the process starts.
+
+4. 12.78–15.54
+Continue the first step.
+Add a supporting detail or sub-action inside the same topic.
+This should feel like an extension of the previous moment, not a hard reset.
+
+5. 15.81–17.42
+Show a short emphasis moment.
+Display a brief important highlight, warning, or key note.
+This should be a quick internal visual change, not a large new scene.
+
+6. 18.05–22.61
+Move to the next major step.
+Advance the progress visually.
+Use arrows, a progress line, or card transition to show movement to the next phase.
+
+7. 23.31–26.40
+Show a detail inside the second step.
+Display a concrete action such as filling in, confirming, or completing something.
+
+8. 26.80–30.84
+Show what happens next in the flow.
+Continue the process with a natural transition.
+Keep visual continuity.
+
+9. 31.54–32.73
+Show a very short highlight.
+This is a quick visual emphasis only.
+Use a pulse, checkmark, icon pop, or short text emphasis.
+
+10. 33.05–38.74
+Show the main information block.
+This is one of the most important parts.
+Use a bigger scene with multiple visual elements if needed, such as cards, checklist items, or grouped information.
+
+11. 39.38–42.60
+Show supporting explanation.
+Add more detail related to the current topic.
+Stay visually connected to the previous section.
+
+12. 43.49–48.75
+Continue the explanation.
+Extend the same scene or slightly evolve it.
+Do not switch to something unrelated.
+
+13. 48.99–52.19
+Show what follows after this.
+Introduce the next phase after the main explanation.
+
+14. 52.88–55.94
+Show confirmation or result.
+Display a success state, completed registration feeling, or checkmark moment.
+
+15. 56.25–59.20
+Show reassurance.
+Use calm visuals that make the process feel safe, easy, and under control.
+
+16. 59.86–63.46
+Show the final process stage.
+Present the final action or final part of the explanation.
+
+17. 64.17–68.54
+Show a recap / final overview.
+Summarize the process visually in a simplified overview.
+
+18. 69.31–71.43
+Prepare the closing call to action.
+Shift focus toward the final action or takeaway.
+
+19. 71.68–75.23
+Show the ending.
+Display the final message and fade out cleanly.
+
+Animation behavior requirements:
+- Segments around 4–6 seconds can be full scenes.
+- Segments around 1–2 seconds should mostly be quick highlight moments within the current scene.
+- Use smooth fades, slide-ins, subtle zooms, icon reveals, and progress movement.
+- Avoid chaotic motion.
+- Avoid scenes staying static too long.
+- Avoid transitions that happen too late compared to the speech.
+- Each spoken section should have a clear visual purpose.
+- Make sure the animation feels tightly timed to the audio.
+
+Technical implementation requirements:
+- Add clear timeline markers in code for each section.
+- Structure the animation so each section can be easily adjusted.
+- Keep reusable functions for text reveal, card transition, icon pop-in, highlight pulse, and progress step updates.
+- Keep timing editable and organized.
+
+Goal:
+Rebuild the current animation timing so it feels naturally synchronized with the voiceover and so each visual section clearly matches the spoken section above.
