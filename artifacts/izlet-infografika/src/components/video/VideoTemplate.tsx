@@ -3,28 +3,38 @@ import { useVideoPlayer } from '@/lib/video';
 import SceneIntro from './scenes/SceneIntro';
 import SceneOverview from './scenes/SceneOverview';
 import Scene1Student from './scenes/Scene1Student';
+import Scene5Package from './scenes/Scene5Package';
 import Scene2Email from './scenes/Scene2Email';
 import SceneReviewConfirm from './scenes/SceneReviewConfirm';
-import Scene5Package from './scenes/Scene5Package';
 import Scene7Zoom from './scenes/Scene7Zoom';
-import SceneReassurance from './scenes/SceneReassurance';
 import Scene8AltDate from './scenes/Scene8AltDate';
-import Scene6Total from './scenes/Scene6Total';
+import SceneReassurance from './scenes/SceneReassurance';
 import Scene9Summary from './scenes/Scene9Summary';
 
-// Total: ~75 260ms — matches voiceover segments 1-19
+// Scene order matches the voiceover narrative:
+//  1. SceneIntro        — "Začetek prijave je predregistracija"
+//  2. SceneOverview     — visual process overview (bridge between intro & form)
+//  3. Scene1Student     — "maturant izpolni obrazec" + "pravi kontaktni podatki"
+//  4. Scene5Package     — "storitve osnovnega aranžmaja" + "dodatne možnosti + celoten pregled"
+//  5. Scene2Email       — "starši prejmejo obvestilo in povezavo"
+//  6. SceneReviewConfirm— "pregledajo in potrdijo"
+//  7. Scene7Zoom        — "informativni sestanek" × 3 voiceover lines
+//  8. Scene8AltDate     — "drug termin"
+//  9. SceneReassurance  — "celoten postopek je jasen, pregleden in pomirjujoč"
+// 10. Scene9Summary     — closing visual summary
+
+// Total: ~72 500ms
 const SCENE_DURATIONS = {
-  sceneIntro:          3500,   // seg 1:  0.00–3.49
-  sceneOverview:       5100,   // seg 2:  3.98–8.58
-  scene1Student:       8840,   // segs 3-5: 9.26–17.42
-  scene2Email:         5200,   // seg 6:  18.05–22.61
-  sceneReviewConfirm:  10120,  // segs 7-9: 23.31–32.73
-  scene5Package:       16020,  // segs 10-12: 33.05–48.75
-  scene7Zoom:          3440,   // seg 13: 48.99–52.19
-  sceneReassurance:    7010,   // segs 14-15: 52.88–59.20
-  scene8AltDate:       4260,   // seg 16: 59.86–63.46
-  scene6Total:         5080,   // seg 17: 64.17–68.54
-  scene9Summary:       6690,   // segs 18-19: 69.31–75.23
+  sceneIntro:          3500,   // "Začetek prijave je predregistracija"
+  sceneOverview:       4000,   // process overview bridge
+  scene1Student:       9000,   // form fill (line 2) + contact data highlight (line 3)
+  scene5Package:       12000,  // base services (line 4) + addons + total view (line 5)
+  scene2Email:         5500,   // parents receive email (line 6)
+  sceneReviewConfirm:  5500,   // parents confirm (line 7)
+  scene7Zoom:          15000,  // info meeting × 3 lines (lines 8–10)
+  scene8AltDate:       4500,   // alternate date (line 11)
+  sceneReassurance:    7500,   // reassuring closing (line 12)
+  scene9Summary:       6000,   // closing visual summary
 };
 
 export default function VideoTemplate() {
@@ -57,17 +67,16 @@ export default function VideoTemplate() {
         </div>
 
         <AnimatePresence mode="wait">
-          {currentScene === 0  && <SceneIntro         key="sceneIntro" />}
-          {currentScene === 1  && <SceneOverview       key="sceneOverview" />}
-          {currentScene === 2  && <Scene1Student       key="scene1Student" />}
-          {currentScene === 3  && <Scene2Email         key="scene2Email" />}
-          {currentScene === 4  && <SceneReviewConfirm  key="sceneReviewConfirm" />}
-          {currentScene === 5  && <Scene5Package       key="scene5Package" />}
-          {currentScene === 6  && <Scene7Zoom          key="scene7Zoom" />}
-          {currentScene === 7  && <SceneReassurance    key="sceneReassurance" />}
-          {currentScene === 8  && <Scene8AltDate       key="scene8AltDate" />}
-          {currentScene === 9  && <Scene6Total         key="scene6Total" />}
-          {currentScene === 10 && <Scene9Summary       key="scene9Summary" />}
+          {currentScene === 0 && <SceneIntro          key="sceneIntro" />}
+          {currentScene === 1 && <SceneOverview        key="sceneOverview" />}
+          {currentScene === 2 && <Scene1Student        key="scene1Student" />}
+          {currentScene === 3 && <Scene5Package        key="scene5Package" />}
+          {currentScene === 4 && <Scene2Email          key="scene2Email" />}
+          {currentScene === 5 && <SceneReviewConfirm   key="sceneReviewConfirm" />}
+          {currentScene === 6 && <Scene7Zoom           key="scene7Zoom" />}
+          {currentScene === 7 && <Scene8AltDate        key="scene8AltDate" />}
+          {currentScene === 8 && <SceneReassurance     key="sceneReassurance" />}
+          {currentScene === 9 && <Scene9Summary        key="scene9Summary" />}
         </AnimatePresence>
       </div>
     </div>
