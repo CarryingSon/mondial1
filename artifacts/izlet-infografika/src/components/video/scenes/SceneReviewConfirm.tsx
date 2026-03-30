@@ -7,20 +7,19 @@ import { sceneTransitions } from '@/lib/video/animations';
 export default function SceneReviewConfirm() {
   const [step, setStep] = useState(0);
 
-  // Total scene: 10120ms
-  // seg 7: 23.31–26.40 (~3.1s) — parents appear + review form
-  // seg 8: 26.80–30.84 (~4.0s) — cursor moves, button clicked, transition to confirm
-  // seg 9: 31.54–32.73 (~1.2s) — quick checkmark pulse highlight
+  // Total scene: 5500ms
+  // "Tako lahko prijavo enostavno pregledajo in jo potrdijo." (~3.5s)
+  // All 9 animation steps compressed to fit — parents→form→cursor→click→checkmark
   useSceneTimer([
-    { time: 400, callback: () => setStep(1) },   // parents appear
-    { time: 1200, callback: () => setStep(2) },   // form slides in
-    { time: 2200, callback: () => setStep(3) },   // form content reveals
-    { time: 3200, callback: () => setStep(4) },   // cursor appears (seg 8 begins ~3.5s in)
-    { time: 4800, callback: () => setStep(5) },   // cursor moves to button
-    { time: 5800, callback: () => setStep(6) },   // button clicked
-    { time: 6600, callback: () => setStep(7) },   // success state
-    { time: 7800, callback: () => setStep(8) },   // big checkmark (seg 9 begins ~8.2s in)
-    { time: 9000, callback: () => setStep(9) },   // pulse highlight
+    { time: 250,  callback: () => setStep(1) },  // parents appear
+    { time: 700,  callback: () => setStep(2) },  // form slides in
+    { time: 1300, callback: () => setStep(3) },  // form content reveals
+    { time: 1900, callback: () => setStep(4) },  // cursor appears
+    { time: 2500, callback: () => setStep(5) },  // cursor moves to button
+    { time: 3100, callback: () => setStep(6) },  // button clicked
+    { time: 3600, callback: () => setStep(7) },  // success state
+    { time: 4100, callback: () => setStep(8) },  // big checkmark
+    { time: 4700, callback: () => setStep(9) },  // pulse
   ]);
 
   const showConfirmPhase = step >= 4;

@@ -7,24 +7,25 @@ import { sceneTransitions } from '@/lib/video/animations';
 export default function Scene7Zoom() {
   const [step, setStep] = useState(0);
 
-  // Total scene: 15000ms — covers 3 voiceover lines:
-  // Line 8 (~7s): "ker si starši želeijo informacije... je omogočen informativni sestanek"
-  //   → meeting window appears, participants join
+  // Total scene: 17000ms — covers 3 voiceover lines:
+  // Line 8 (~8.5s): "ker si starši želeijo informacije... je omogočen informativni sestanek"
+  //   → meeting window appears, participants join, live glow
   // Line 9 (~5s): "podrobneje predstavimo potek prijave, organizacijo, izlet"
-  //   → "presenter" tile highlighted, topic icons appear in sidebar
-  // Line 10 (~3s): "vsi sestanki potekajo preko spletnega srečanja"
-  //   → globe/wifi icon pops in, visual emphasis on "online"
+  //   → presenter tile highlighted, topic icons appear in sidebar
+  // Line 10 (~3.5s): "vsi sestanki potekajo preko spletnega srečanja"
+  //   → globe/wifi icon pops in, second pulse wave as scene closes
   useSceneTimer([
-    { time: 400,  callback: () => setStep(1) },  // window drops in
-    { time: 1200, callback: () => setStep(2) },  // tiles appear
-    { time: 2800, callback: () => setStep(3) },  // all tiles live + active glow (line 8)
-    { time: 5000, callback: () => setStep(4) },  // presenter highlight starts (line 9)
-    { time: 6500, callback: () => setStep(5) },  // topic icon 1 appears
-    { time: 7800, callback: () => setStep(6) },  // topic icon 2 appears
-    { time: 9200, callback: () => setStep(7) },  // topic icon 3 appears
-    { time: 10800, callback: () => setStep(8) }, // transition to "online" emphasis (line 10)
-    { time: 12000, callback: () => setStep(9) }, // globe + wifi icons pop in
-    { time: 13500, callback: () => setStep(10) },// glow pulse on online indicators
+    { time: 400,   callback: () => setStep(1) },  // window drops in
+    { time: 1200,  callback: () => setStep(2) },  // tiles appear
+    { time: 2800,  callback: () => setStep(3) },  // all tiles live + active glow (line 8 start)
+    { time: 6000,  callback: () => setStep(4) },  // presenter highlight starts (line 9)
+    { time: 7500,  callback: () => setStep(5) },  // topic icon 1 appears
+    { time: 8800,  callback: () => setStep(6) },  // topic icon 2 appears
+    { time: 10200, callback: () => setStep(7) },  // topic icon 3 appears
+    { time: 11800, callback: () => setStep(8) },  // transition to "online" emphasis (line 10)
+    { time: 13000, callback: () => setStep(9) },  // globe + wifi icons pop in
+    { time: 14500, callback: () => setStep(10) }, // first glow pulse on online indicators
+    { time: 16000, callback: () => setStep(11) }, // second pulse wave — final emphasis
   ]);
 
   const participants = [0, 1, 2, 3];
@@ -190,19 +191,28 @@ export default function Scene7Zoom() {
             className="flex flex-col items-center gap-3 p-4 bg-emerald-900/30 border border-emerald-500/40 rounded-xl"
           >
             <motion.div
-              animate={step >= 10 ? { scale: [1, 1.12, 1] } : {}}
-              transition={{ duration: 0.8, repeat: 2 }}
+              animate={step >= 11 ? { scale: [1, 1.2, 1] } : step >= 10 ? { scale: [1, 1.15, 1] } : {}}
+              transition={{ duration: 0.8, repeat: step >= 11 ? Infinity : 2 }}
               className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center"
             >
               <Wifi size={22} className="text-white" />
             </motion.div>
             <motion.div
-              animate={step >= 10 ? { scale: [1, 1.08, 1] } : {}}
-              transition={{ duration: 0.8, repeat: 2, delay: 0.2 }}
+              animate={step >= 11 ? { scale: [1, 1.15, 1] } : step >= 10 ? { scale: [1, 1.1, 1] } : {}}
+              transition={{ duration: 0.8, repeat: step >= 11 ? Infinity : 2, delay: 0.2 }}
               className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center"
             >
               <Globe size={22} className="text-white" />
             </motion.div>
+            {/* Second pulse ring at step 11 */}
+            {step >= 11 && (
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0.6 }}
+                animate={{ scale: 2, opacity: 0 }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="absolute inset-0 rounded-xl border-2 border-emerald-400/60 pointer-events-none"
+              />
+            )}
           </motion.div>
         </div>
       </div>

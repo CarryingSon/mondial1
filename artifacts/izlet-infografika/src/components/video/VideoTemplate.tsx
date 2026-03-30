@@ -12,29 +12,29 @@ import SceneReassurance from './scenes/SceneReassurance';
 import Scene9Summary from './scenes/Scene9Summary';
 
 // Scene order matches the voiceover narrative:
-//  1. SceneIntro        — "Začetek prijave je predregistracija"
-//  2. SceneOverview     — visual process overview (bridge between intro & form)
-//  3. Scene1Student     — "maturant izpolni obrazec" + "pravi kontaktni podatki"
-//  4. Scene5Package     — "storitve osnovnega aranžmaja" + "dodatne možnosti + celoten pregled"
-//  5. Scene2Email       — "starši prejmejo obvestilo in povezavo"
-//  6. SceneReviewConfirm— "pregledajo in potrdijo"
-//  7. Scene7Zoom        — "informativni sestanek" × 3 voiceover lines
-//  8. Scene8AltDate     — "drug termin"
-//  9. SceneReassurance  — "celoten postopek je jasen, pregleden in pomirjujoč"
-// 10. Scene9Summary     — closing visual summary
+//  1. SceneIntro        — line 1:  "Začetek prijave je predregistracija"            (~3.5s)
+//  2. SceneOverview     — line 2:  "Takrat maturant izpolni obrazec…"               (~5s)
+//  3. Scene1Student     — line 3:  "Pravi kontaktni podatki…"                       (~7s)
+//  4. Scene5Package     — lines 4+5: base services + add-ons + total view           (~11.5s)
+//  5. Scene2Email       — line 6:  "starši prejmejo obvestilo in povezavo"          (~7s)
+//  6. SceneReviewConfirm— line 7:  "pregledajo in potrdijo"                         (~3.5s)
+//  7. Scene7Zoom        — lines 8-10: info meeting × 3 voiceover lines              (~17s)
+//  8. Scene8AltDate     — line 11: "drug termin"                                    (~5s)
+//  9. SceneReassurance  — line 12: "jasen, pregleden in pomirjujoč"                 (~5.5s)
+// 10. Scene9Summary     — closing visual outro                                       (~7s)
 
-// Total: ~72 500ms
+// Total: ~76 500ms  ≈  75s voiceover + ~1.5s buffer
 const SCENE_DURATIONS = {
-  sceneIntro:          3500,   // "Začetek prijave je predregistracija"
-  sceneOverview:       4000,   // process overview bridge
-  scene1Student:       9000,   // form fill (line 2) + contact data highlight (line 3)
-  scene5Package:       12000,  // base services (line 4) + addons + total view (line 5)
-  scene2Email:         9000,   // parents receive email + link (line 6)
-  sceneReviewConfirm:  10000,  // parents review form, click confirm, big checkmark (line 7)
-  scene7Zoom:          15000,  // info meeting × 3 lines (lines 8–10)
-  scene8AltDate:       4500,   // alternate date (line 11)
-  sceneReassurance:    7500,   // reassuring closing (line 12)
-  scene9Summary:       6000,   // closing visual summary
+  sceneIntro:          3500,   // line 1
+  sceneOverview:       5000,   // line 2
+  scene1Student:       8000,   // line 3
+  scene5Package:       11000,  // lines 4+5
+  scene2Email:         8000,   // line 6
+  sceneReviewConfirm:  5500,   // line 7  — timers compressed to fit all 9 steps
+  scene7Zoom:          17000,  // lines 8–10 (3 sentences, 11 steps)
+  scene8AltDate:       5500,   // line 11
+  sceneReassurance:    6000,   // line 12
+  scene9Summary:       7000,   // outro (pulse wave at 6.4s fits within 7s)
 };
 
 export default function VideoTemplate() {
