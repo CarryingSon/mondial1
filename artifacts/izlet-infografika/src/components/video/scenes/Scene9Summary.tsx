@@ -24,13 +24,13 @@ export default function Scene9Summary() {
     { time: 1400, callback: () => setStep(3) },
     { time: 1900, callback: () => setStep(4) },
     { time: 2400, callback: () => setStep(5) },
-    // Pulse wave left → right
-    { time: 3500, callback: () => setPulseIdx(0) },
-    { time: 4000, callback: () => setPulseIdx(1) },
-    { time: 4500, callback: () => setPulseIdx(2) },
-    { time: 5000, callback: () => setPulseIdx(3) },
-    { time: 5500, callback: () => setPulseIdx(4) },
-    { time: 6100, callback: () => setPulseIdx(-1) },
+    // Pulse wave left → right (~4s into scene)
+    { time: 4000, callback: () => setPulseIdx(0) },
+    { time: 4500, callback: () => setPulseIdx(1) },
+    { time: 5000, callback: () => setPulseIdx(2) },
+    { time: 5500, callback: () => setPulseIdx(3) },
+    { time: 6000, callback: () => setPulseIdx(4) },
+    { time: 6400, callback: () => setPulseIdx(-1) },
   ]);
 
   return (
