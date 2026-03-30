@@ -1,0 +1,89 @@
+Naredi moderno animirano infografiko v več scenah za spletni prikaz v Replitu.
+
+Glavni cilj:
+Ustvari kratko, jasno in vizualno privlačno infografiko brez besedila, ki je namenjena STARŠEM maturantov. Infografika mora staršem na enostaven in razumljiv način prikazati, kako poteka prvi korak prijave na maturantski izlet 2026 in kakšna je njihova vloga v procesu.
+
+Pomembno:
+- ciljna publika so starši, ne dijaki
+- v ospredju morajo biti informacije in koraki, ki se tičejo staršev
+- brez besedila, brez naslovov, brez podnapisov, brez številk
+- brez voiceoverja v kodi, ker bomo zvok dodali naknadno iz ElevenLabs
+- brez gumbov, ki delujejo kot prava aplikacija
+- brez kompleksnega uporabniškega vmesnika
+- samo čista, jasna, animirana infografika
+- stil naj bo sodoben, minimalističen, topel, zaupanja vreden in profesionalen
+- barvna paleta naj deluje prijazno, varno, organizirano in primerno za starše ter potovalno agencijo
+- vse mora biti zelo razumljivo tudi brez teksta
+- format naj bo 16:9
+- animacija naj teče gladko, avtomatsko in v zanki
+- naredi jo kot React projekt
+
+Ključna zgodba infografike:
+Dijak izpolni predregistracijo, nato pa se fokus prenese na starše: starši prejmejo e-mail, pregledajo prijavo, potrdijo prijavo in imajo možnost udeležbe na Zoom informativnem sestanku. Če želijo drug termin, pošljejo e-mail in prejmejo alternativni Zoom termin.
+
+Struktura scen:
+
+1. UVODNA SCENA
+Prikaži dijaka, ki izpolni predregistracijski obrazec.
+To naj bo samo kratek uvod, brez preveč poudarka.
+Takoj po oddaji obrazca naj se vizualna pozornost prenese od dijaka proti staršem.
+
+2. PRENOS INFORMACIJE K STARŠEM
+Prikaži, da starši prejmejo obvestilo po e-pošti.
+Uporabi jasno animacijo e-mail sporočila, ki pride do starševskih avatarjev.
+Ta scena mora jasno pokazati, da so starši vključeni v naslednji korak procesa.
+
+3. STARŠI PREGLEDAJO PRIJAVO
+Prikaži starše, ki odprejo e-mail in pregledajo prijavo.
+Vizualno nakaži, da so v prijavi vidni kontaktni podatki dijaka in staršev ter izbran program.
+Ne uporabljaj teksta, ampak kartice, ikone, check elemente in strukturirano postavitev.
+
+4. POTRDITEV PRIJAVE
+Prikaži, da starši kliknejo potrditveno povezavo.
+Ta trenutek naj bo zelo jasen in vizualno poudarjen.
+Po kliku naj se pokaže občutek uspešno potrjenega koraka, na primer s check znakom, potrditveno animacijo ali prehodom v urejen naslednji korak.
+
+5. PREDSTAVITEV ARANŽMAJA
+Prikaži, da prijava vsebuje osnovni aranžma in možnost dodatnih opcij.
+Ker je infografika za starše, naj deluje kot kratek vizualni pregled tega, kaj je vključeno in kaj se lahko doda.
+Uporabi ikone za vključene storitve in ločeno prikaži dodatne opcije.
+Ne uporabljaj številk ali cen v tekstu.
+
+6. VIZUALNI OBČUTEK IZRAČUNANE CELOTE
+Prikaži, da se na podlagi osnovnega paketa in dodatkov oblikuje končna celota prijave.
+Ker ni teksta, ne prikazuj dejanske cene z valutami, ampak uporabi vizualno logiko sestavljanja elementov v enoten, zaključen paket ali povzetek.
+
+7. MOŽNOST INFORMATIVNEGA SESTANKA ZA STARŠE
+Prikaži, da imajo starši možnost udeležbe na Zoom informativnem sestanku.
+Uporabi več starševskih avatarjev, računalnik ali video okno in jasno animacijo skupnega spletnega srečanja.
+Scena naj deluje zaupanja vredno, organizirano in umirjeno.
+
+8. ALTERNATIVNI TERMIN
+Prikaži, da lahko starši v primeru želje po drugem terminu pošljejo e-mail.
+Nato pokaži, da se odpre nov Zoom termin oziroma novo organizirano srečanje za zainteresirane.
+Ta scena naj bo vizualno zelo enostavna in jasna.
+
+9. ZAKLJUČNA POVZETNA SCENA
+Na koncu prikaži celoten proces kot čist vizualni tok:
+dijak odda predregistracijo → starši prejmejo e-mail → starši pregledajo in potrdijo prijavo → možnost Zoom sestanka → možnost alternativnega termina.
+Zaključek naj deluje zelo pregledno, mirno in profesionalno.
+
+Vizualni slog:
+- clean flat design
+- mehki prehodi
+- rahlo zaobljene kartice in elementi
+- preproste, moderne ilustracije oseb
+- jasne ikone za e-mail, potrditev, paket, dodatke, Zoom, koledar
+- brez stock fotografij
+- brez realističnih obrazov
+- brez prenatrpanosti
+- naj bo občutek zaupanja, organiziranosti in varnosti
+
+Tehnične zahteve:
+- zgradi to kot delujoč React projekt
+- animacija naj se predvaja samodejno
+- vse scene naj bodo povezane z gladkimi prehodi
+- posamezne scene naj trajajo nekaj sekund
+- naj bo enostavno naknadno prilagoditi barve, trajanje scen in ikone
+- koda naj bo organizirana po komponentah
+- pripravi prvo delujočo verzijo takoj
