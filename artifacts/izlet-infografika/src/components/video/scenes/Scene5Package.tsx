@@ -59,18 +59,18 @@ export default function Scene5Package() {
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: step >= 2 ? 1 : 0, opacity: step >= 2 ? 1 : 0 }}
-          className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center shadow-lg z-20 shrink-0"
+          className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center shadow-lg z-20 shrink-0"
         >
-          <Plus size={32} className="text-amber-500" />
+          <Plus size={32} className="text-red-600" />
         </motion.div>
 
         {/* Addons */}
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: step >= 3 ? 1 : 0, x: step >= 3 ? 0 : 50 }}
-          className="flex-1 bg-white p-8 rounded-3xl shadow-xl border-t-4 border-amber-400 flex flex-col items-center"
+          className="flex-1 bg-white p-8 rounded-3xl shadow-xl border-t-4 border-red-500 flex flex-col items-center"
         >
-          <div className="w-32 h-6 bg-amber-100 rounded-full mb-8" />
+          <div className="w-32 h-6 bg-red-50 rounded-full mb-8" />
           
           <div className="grid grid-cols-1 gap-4 w-full">
             {addonIcons.map((Icon, i) => (
@@ -79,14 +79,14 @@ export default function Scene5Package() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: step >= 3 ? 1 : 0, y: step >= 3 ? 0 : 20 }}
                 transition={{ delay: 0.2 + i * 0.2 }}
-                className="flex items-center gap-4 p-4 rounded-xl border border-amber-100 bg-amber-50/30"
+                className="flex items-center gap-4 p-4 rounded-xl border border-red-100 bg-red-50/30"
               >
-                <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
+                <div className="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center text-red-700">
                   <Icon size={24} />
                 </div>
                 <div className="flex-1 space-y-2">
-                  <div className="w-full h-3 bg-amber-200/50 rounded-full" />
-                  <div className="w-1/2 h-2 bg-amber-200/50 rounded-full" />
+                  <div className="w-full h-3 bg-red-100/50 rounded-full" />
+                  <div className="w-1/2 h-2 bg-red-100/50 rounded-full" />
                 </div>
               </motion.div>
             ))}

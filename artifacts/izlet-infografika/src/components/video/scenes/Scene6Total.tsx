@@ -58,9 +58,9 @@ export default function Scene6Total() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: step >= 1 ? 1 : 0, y: step >= 1 ? 0 : 20 }}
-            className="w-32 h-40 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center border-t-4 border-amber-400"
+            className="w-32 h-40 bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center border-t-4 border-red-500"
           >
-            <div className="w-16 h-4 bg-amber-100 rounded-full mb-4" />
+            <div className="w-16 h-4 bg-red-50 rounded-full mb-4" />
             <div className="w-full px-4 space-y-2">
                <div className="h-2 bg-slate-100 rounded-full" />
                <div className="h-2 bg-slate-100 rounded-full w-3/4" />

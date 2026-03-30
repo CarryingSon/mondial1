@@ -20,7 +20,7 @@ export default function Scene2Email() {
       style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-blue.png)` }}
       {...sceneTransitions.slideLeft}
     >
-      <div className="absolute inset-0 bg-[#1E3A8A]/80 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-[#2E3192]/80 backdrop-blur-md" />
 
       <div className="relative z-10 flex items-center justify-center w-full max-w-5xl mx-auto">
         {/* Email Envelope */}
@@ -49,7 +49,7 @@ export default function Scene2Email() {
           
           <div className="w-32 h-24 bg-white rounded-xl flex items-center justify-center shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 inset-x-0 h-1/2 bg-slate-100 border-b border-slate-200" style={{ clipPath: 'polygon(0 0, 100% 0, 50% 100%)' }} />
-            <Mail size={48} className="text-[#1E3A8A] relative z-10" />
+            <Mail size={48} className="text-[#2E3192] relative z-10" />
           </div>
         </motion.div>
 
@@ -66,18 +66,18 @@ export default function Scene2Email() {
               initial={{ scale: 0.8, opacity: 0.8 }}
               animate={{ scale: 1.5, opacity: 0 }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="absolute inset-0 rounded-full border-4 border-[#F59E0B]"
+              className="absolute inset-0 rounded-full border-4 border-[#E31E24]"
             />
           )}
 
           <div className="flex gap-6 relative">
             {/* Parent 1 (Navy) */}
-            <div className="w-48 h-48 rounded-full bg-[#1E3A8A] flex items-center justify-center shadow-[0_0_40px_rgba(30,58,138,0.5)] border-8 border-[#FDFBF7] z-20 relative">
+            <div className="w-48 h-48 rounded-full bg-[#2E3192] flex items-center justify-center shadow-[0_0_40px_rgba(46,49,146,0.5)] border-8 border-[#FDFBF7] z-20 relative">
               <Users size={80} className="text-white" />
             </div>
             
             {/* Parent 2 (Amber) */}
-            <div className="w-40 h-40 rounded-full bg-[#F59E0B] flex items-center justify-center shadow-[0_0_40px_rgba(245,158,11,0.5)] border-8 border-[#FDFBF7] -ml-16 mt-8 z-10 relative">
+            <div className="w-40 h-40 rounded-full bg-[#E31E24] flex items-center justify-center shadow-[0_0_40px_rgba(227,30,36,0.5)] border-8 border-[#FDFBF7] -ml-16 mt-8 z-10 relative">
               <Users size={64} className="text-white" />
             </div>
           </div>
@@ -90,7 +90,7 @@ export default function Scene2Email() {
               transition={{ type: 'spring', bounce: 0.6, delay: 0.2 }}
               className="w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center"
             >
-              <div className="w-4 h-4 bg-[#F59E0B] rounded-full" />
+              <div className="w-4 h-4 bg-[#E31E24] rounded-full" />
             </motion.div>
           </div>
         </motion.div>

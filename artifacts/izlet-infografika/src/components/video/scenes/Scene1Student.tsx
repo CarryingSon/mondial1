@@ -96,12 +96,12 @@ export default function Scene1Student() {
             className="absolute left-full ml-12 flex items-center"
           >
             <motion.div 
-              className="h-2 bg-gradient-to-r from-blue-300 to-amber-400 rounded-full"
+              className="h-2 bg-gradient-to-r from-[#2E3192] to-[#E31E24] rounded-full"
               initial={{ width: 0 }}
               animate={{ width: 120 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
-            <ArrowRight size={48} className="text-amber-500 -ml-4 z-10" />
+            <ArrowRight size={48} className="text-red-600 -ml-4 z-10" />
           </motion.div>
         )}
       </div>

@@ -39,6 +39,18 @@ export default function VideoTemplate() {
           backgroundColor: 'var(--color-bg-light)' 
         }}
       >
+        {/* Mondial Travel logo — always visible top-left */}
+        <div
+          className="absolute top-8 left-8 z-50 pointer-events-none"
+          style={{ width: 280 }}
+        >
+          <img
+            src={`${import.meta.env.BASE_URL}mondial-logo.png`}
+            alt="Mondial Travel"
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+          />
+        </div>
+
         <AnimatePresence mode="wait">
           {currentScene === 0 && <Scene1Student key="scene1" />}
           {currentScene === 1 && <Scene2Email key="scene2" />}

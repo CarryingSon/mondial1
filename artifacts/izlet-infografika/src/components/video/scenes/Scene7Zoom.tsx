@@ -32,7 +32,7 @@ export default function Scene7Zoom() {
           <div className="h-12 bg-slate-800 flex items-center px-4 justify-between border-b border-slate-700">
             <div className="flex gap-2">
               <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-amber-500" />
+              <div className="w-3 h-3 rounded-full bg-red-600" />
               <div className="w-3 h-3 rounded-full bg-emerald-500" />
             </div>
             <div className="flex items-center gap-2 px-3 py-1 bg-slate-700 rounded-md">
@@ -55,7 +55,13 @@ export default function Scene7Zoom() {
                 }`}
               >
                 <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg ${
-                  p === 0 ? 'bg-blue-100 text-blue-600' : 'bg-slate-700 text-slate-400'
+                  p === 0
+                    ? 'bg-[#2E3192] text-white'
+                    : p === 1
+                    ? 'bg-[#E31E24] text-white'
+                    : p === 2
+                    ? 'bg-[#2E3192]/70 text-white'
+                    : 'bg-[#E31E24]/70 text-white'
                 }`}>
                   <Users size={32} />
                 </div>
@@ -71,12 +77,14 @@ export default function Scene7Zoom() {
                   <div className="w-16 h-3 bg-slate-900/60 rounded-full backdrop-blur-sm" />
                 </div>
 
-                {/* Speaker indicator waves */}
-                {p === 0 && step >= 3 && (
+                {/* Connected border glow for all tiles when meeting is live */}
+                {step >= 3 && (
                   <motion.div
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
-                    transition={{ repeat: Infinity, duration: 1.5 }}
-                    className="absolute inset-0 border-4 border-blue-500 rounded-lg pointer-events-none"
+                    animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.2, 0.6] }}
+                    transition={{ repeat: Infinity, duration: p === 0 ? 1.5 : 2 + p * 0.3 }}
+                    className={`absolute inset-0 rounded-lg pointer-events-none border-4 ${
+                      p === 0 ? 'border-[#2E3192]' : 'border-[#E31E24]/60'
+                    }`}
                   />
                 )}
               </motion.div>

@@ -16,11 +16,11 @@ export default function Scene9Summary() {
   ]);
 
   const nodes = [
-    { icon: User, color: 'text-blue-500', bg: 'bg-blue-50', border: 'border-blue-200' },
-    { icon: Mail, color: 'text-slate-500', bg: 'bg-slate-50', border: 'border-slate-200' },
-    { icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-50', border: 'border-emerald-200' },
-    { icon: Video, color: 'text-indigo-500', bg: 'bg-indigo-50', border: 'border-indigo-200' },
-    { icon: CalendarDays, color: 'text-amber-500', bg: 'bg-amber-50', border: 'border-amber-200' },
+    { icon: User, color: 'text-slate-400', bg: 'bg-slate-50', border: 'border-slate-200', size: 80, nodeSize: 'w-20 h-20' },
+    { icon: Mail, color: 'text-white', bg: 'bg-[#2E3192]', border: 'border-[#2E3192]', size: 40, nodeSize: 'w-32 h-32' },
+    { icon: CheckCircle2, color: 'text-white', bg: 'bg-[#E31E24]', border: 'border-[#E31E24]', size: 40, nodeSize: 'w-32 h-32' },
+    { icon: Video, color: 'text-white', bg: 'bg-[#2E3192]', border: 'border-[#2E3192]', size: 40, nodeSize: 'w-32 h-32' },
+    { icon: CalendarDays, color: 'text-white', bg: 'bg-[#E31E24]', border: 'border-[#E31E24]', size: 40, nodeSize: 'w-32 h-32' },
   ];
 
   return (
@@ -52,9 +52,9 @@ export default function Scene9Summary() {
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: isVisible ? 1 : 0, opacity: isVisible ? 1 : 0 }}
                 transition={{ type: 'spring', bounce: 0.5 }}
-                className={`w-24 h-24 rounded-full ${node.bg} ${node.border} border-4 flex items-center justify-center shadow-lg relative bg-white`}
+                className={`${node.nodeSize} rounded-full ${node.bg} ${node.border} border-4 flex items-center justify-center shadow-lg relative`}
               >
-                <Icon size={32} className={node.color} />
+                <Icon size={node.size} className={node.color} />
                 
                 {/* Micro decorative elements under each node */}
                 <motion.div 

@@ -30,10 +30,10 @@ export default function Scene3Review() {
           animate={{ opacity: step >= 1 ? 1 : 0, y: step >= 1 ? 0 : -20 }}
           className="flex gap-6 z-20"
         >
-          <div className="w-24 h-24 rounded-full bg-[#1E3A8A] flex items-center justify-center shadow-xl border-4 border-white">
+          <div className="w-24 h-24 rounded-full bg-[#2E3192] flex items-center justify-center shadow-xl border-4 border-white">
             <User size={40} className="text-white" />
           </div>
-          <div className="w-24 h-24 rounded-full bg-[#F59E0B] flex items-center justify-center shadow-xl border-4 border-white mt-4">
+          <div className="w-24 h-24 rounded-full bg-[#E31E24] flex items-center justify-center shadow-xl border-4 border-white mt-4">
             <User size={40} className="text-white" />
           </div>
         </motion.div>
@@ -42,17 +42,17 @@ export default function Scene3Review() {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="relative w-full bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col border-4 border-[#F59E0B]"
+          className="relative w-full bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col border-4 border-[#E31E24]"
         >
           {/* Glowing outline indicator */}
           <motion.div
             animate={{ opacity: [0.3, 0.7, 0.3] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute inset-0 border-4 border-[#F59E0B] pointer-events-none"
+            className="absolute inset-0 border-4 border-[#E31E24] pointer-events-none"
           />
 
           {/* Header */}
-          <div className="bg-[#1E3A8A] h-24 flex items-center px-8 gap-4">
+          <div className="bg-[#2E3192] h-24 flex items-center px-8 gap-4">
             <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
               <FileText size={24} className="text-white" />
             </div>
@@ -84,14 +84,14 @@ export default function Scene3Review() {
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: step >= 2 ? 1 : 0, x: step >= 2 ? 0 : -20 }}
-                className="bg-amber-50 p-4 rounded-xl flex items-center gap-4 border border-amber-100"
+                className="bg-red-50 p-4 rounded-xl flex items-center gap-4 border border-red-100"
               >
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-[#F59E0B]">
+                <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center text-[#E31E24]">
                   <User size={24} />
                 </div>
                 <div className="flex flex-col gap-2 flex-1">
-                  <div className="w-full h-3 bg-amber-200 rounded-full" />
-                  <div className="w-3/4 h-3 bg-amber-200 rounded-full" />
+                  <div className="w-full h-3 bg-red-100 rounded-full" />
+                  <div className="w-3/4 h-3 bg-red-100 rounded-full" />
                 </div>
               </motion.div>
             </div>
@@ -101,11 +101,11 @@ export default function Scene3Review() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: step >= 3 ? 1 : 0, scale: step >= 3 ? 1 : 0.9 }}
-                className="h-full border-2 border-dashed border-[#F59E0B]/50 rounded-xl p-6 flex flex-col items-center justify-center text-center bg-amber-50/30"
+                className="h-full border-2 border-dashed border-[#E31E24]/50 rounded-xl p-6 flex flex-col items-center justify-center text-center bg-red-50/30"
               >
-                <MapPin size={32} className="text-[#F59E0B] mb-4" />
-                <div className="w-24 h-4 bg-amber-200 rounded-full mb-2" />
-                <div className="w-16 h-3 bg-amber-100 rounded-full" />
+                <MapPin size={32} className="text-[#E31E24] mb-4" />
+                <div className="w-24 h-4 bg-red-100 rounded-full mb-2" />
+                <div className="w-16 h-3 bg-red-50 rounded-full" />
                 
                 <motion.div
                   initial={{ scale: 0 }}
