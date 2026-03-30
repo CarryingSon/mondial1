@@ -7,10 +7,12 @@ import { sceneTransitions } from '@/lib/video/animations';
 export default function Scene7Zoom() {
   const [step, setStep] = useState(0);
 
+  // Total scene: 3440ms
+  // seg 13 (48.99–52.19, ~3.2s): Zoom meeting window appears, participants connect
   useSceneTimer([
-    { time: 500, callback: () => setStep(1) }, // Show window
-    { time: 1000, callback: () => setStep(2) }, // Show participants
-    { time: 2000, callback: () => setStep(3) }, // Highlight speaker
+    { time: 350,  callback: () => setStep(1) }, // window appears
+    { time: 1000, callback: () => setStep(2) }, // participants
+    { time: 2200, callback: () => setStep(3) }, // live glows
   ]);
 
   const participants = [0, 1, 2, 3];
@@ -21,11 +23,11 @@ export default function Scene7Zoom() {
       {...sceneTransitions.scaleFade}
     >
       <div className="relative z-10 w-full max-w-4xl">
-        
-        {/* Browser / App Window */}
+
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: step >= 1 ? 0 : 50, opacity: step >= 1 ? 1 : 0 }}
+          initial={{ y: 60, opacity: 0 }}
+          animate={{ y: step >= 1 ? 0 : 60, opacity: step >= 1 ? 1 : 0 }}
+          transition={{ duration: 0.6, type: 'spring', bounce: 0.3 }}
           className="bg-slate-900 rounded-xl shadow-2xl overflow-hidden aspect-video flex flex-col"
         >
           {/* Toolbar */}
@@ -49,23 +51,18 @@ export default function Scene7Zoom() {
                 key={p}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: step >= 2 ? 1 : 0.8, opacity: step >= 2 ? 1 : 0 }}
-                transition={{ delay: p * 0.15 }}
-                className={`relative bg-slate-800 rounded-lg overflow-hidden flex items-center justify-center border-2 ${
-                  p === 0 && step >= 3 ? 'border-blue-500' : 'border-transparent'
-                }`}
+                transition={{ delay: p * 0.12, duration: 0.4 }}
+                className="relative bg-slate-800 rounded-lg overflow-hidden flex items-center justify-center border-2 border-transparent"
               >
                 <div className={`w-20 h-20 rounded-full flex items-center justify-center shadow-lg ${
-                  p === 0
-                    ? 'bg-[#2E3192] text-white'
-                    : p === 1
-                    ? 'bg-[#E31E24] text-white'
-                    : p === 2
-                    ? 'bg-[#2E3192]/70 text-white'
-                    : 'bg-[#E31E24]/70 text-white'
-                }`}>
+                  p === 0 ? 'bg-[#2E3192]'
+                  : p === 1 ? 'bg-[#E31E24]'
+                  : p === 2 ? 'bg-[#2E3192]/65'
+                  : 'bg-[#E31E24]/65'
+                } text-white`}>
                   <Users size={32} />
                 </div>
-                
+
                 <div className="absolute bottom-3 left-3 flex items-center gap-2">
                   <div className="w-6 h-6 rounded-md bg-slate-900/60 flex items-center justify-center backdrop-blur-sm">
                     {p === 0 && step >= 3 ? (
@@ -77,13 +74,13 @@ export default function Scene7Zoom() {
                   <div className="w-16 h-3 bg-slate-900/60 rounded-full backdrop-blur-sm" />
                 </div>
 
-                {/* Connected border glow for all tiles when meeting is live */}
+                {/* Glow for all tiles when live */}
                 {step >= 3 && (
                   <motion.div
-                    animate={{ scale: [1, 1.05, 1], opacity: [0.6, 0.2, 0.6] }}
-                    transition={{ repeat: Infinity, duration: p === 0 ? 1.5 : 2 + p * 0.3 }}
+                    animate={{ scale: [1, 1.04, 1], opacity: [0.55, 0.15, 0.55] }}
+                    transition={{ repeat: Infinity, duration: p === 0 ? 1.4 : 1.8 + p * 0.25 }}
                     className={`absolute inset-0 rounded-lg pointer-events-none border-4 ${
-                      p === 0 ? 'border-[#2E3192]' : 'border-[#E31E24]/60'
+                      p === 0 ? 'border-[#2E3192]' : 'border-[#E31E24]/50'
                     }`}
                   />
                 )}
@@ -91,14 +88,17 @@ export default function Scene7Zoom() {
             ))}
           </div>
 
-          {/* Bottom controls */}
-          <div className="h-16 bg-slate-800 flex items-center justify-center gap-4">
-             <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center"><Mic size={18} className="text-slate-300" /></div>
-             <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center"><Video size={18} className="text-slate-300" /></div>
-             <div className="w-16 h-8 rounded-full bg-red-500/20" />
+          {/* Controls */}
+          <div className="h-14 bg-slate-800 flex items-center justify-center gap-4">
+            <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center">
+              <Mic size={18} className="text-slate-300" />
+            </div>
+            <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center">
+              <Video size={18} className="text-slate-300" />
+            </div>
+            <div className="w-16 h-8 rounded-full bg-red-500/20" />
           </div>
         </motion.div>
-
       </div>
     </motion.div>
   );
