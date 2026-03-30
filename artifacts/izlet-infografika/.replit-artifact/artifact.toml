@@ -1,0 +1,31 @@
+kind = "video"
+previewPath = "/izlet-infografika/"
+title = "Maturantski Izlet 2026 – Infografika za Starše"
+version = "1.0.0"
+id = "artifacts/izlet-infografika"
+router = "path"
+
+[[integratedSkills]]
+name = "video-js"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/izlet-infografika/" ]
+localPort = 21978
+
+[services.development]
+run = "pnpm --filter @workspace/izlet-infografika run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/izlet-infografika", "run", "build" ]
+publicDir = "artifacts/izlet-infografika/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21978"
+BASE_PATH = "/izlet-infografika/"
