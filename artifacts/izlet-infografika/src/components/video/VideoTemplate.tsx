@@ -44,19 +44,17 @@ export default function VideoTemplate() {
           backgroundColor: 'var(--color-bg-light)',
         }}
       >
-        {/* Mondial Travel logo — always visible top-left (hidden on SceneIntro where it's centred) */}
-        {currentScene !== 0 && (
-          <div
-            className="absolute top-8 left-8 z-50 pointer-events-none"
-            style={{ width: 280 }}
-          >
-            <img
-              src={`${import.meta.env.BASE_URL}mondial-logo.png`}
-              alt="Mondial Travel"
-              style={{ width: '100%', height: 'auto', display: 'block' }}
-            />
-          </div>
-        )}
+        {/* Mondial Travel logo — always visible in top-left throughout all scenes */}
+        <div
+          className="absolute top-8 left-8 z-50 pointer-events-none"
+          style={{ width: 280 }}
+        >
+          <img
+            src={`${import.meta.env.BASE_URL}mondial-logo.png`}
+            alt="Mondial Travel"
+            style={{ width: '100%', height: 'auto', display: 'block' }}
+          />
+        </div>
 
         <AnimatePresence mode="wait">
           {currentScene === 0  && <SceneIntro         key="sceneIntro" />}
