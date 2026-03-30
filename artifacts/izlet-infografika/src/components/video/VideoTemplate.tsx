@@ -29,8 +29,8 @@ const SCENE_DURATIONS = {
   sceneOverview:       4000,   // process overview bridge
   scene1Student:       9000,   // form fill (line 2) + contact data highlight (line 3)
   scene5Package:       12000,  // base services (line 4) + addons + total view (line 5)
-  scene2Email:         5500,   // parents receive email (line 6)
-  sceneReviewConfirm:  5500,   // parents confirm (line 7)
+  scene2Email:         9000,   // parents receive email + link (line 6)
+  sceneReviewConfirm:  10000,  // parents review form, click confirm, big checkmark (line 7)
   scene7Zoom:          15000,  // info meeting × 3 lines (lines 8–10)
   scene8AltDate:       4500,   // alternate date (line 11)
   sceneReassurance:    7500,   // reassuring closing (line 12)
