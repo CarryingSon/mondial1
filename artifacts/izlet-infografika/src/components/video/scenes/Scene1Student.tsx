@@ -25,27 +25,27 @@ export default function Scene1Student() {
         {/* Student Avatar */}
         <motion.div
           animate={{
-            scale: step >= 3 ? 0.8 : 1,
-            opacity: step >= 3 ? 0.5 : 1,
-            x: step >= 3 ? -100 : 0
+            scale: step >= 2 ? 0.6 : 1,
+            opacity: step >= 2 ? 0.3 : 1,
+            x: step >= 2 ? -150 : 0
           }}
           transition={{ duration: 0.8, ease: 'circOut' }}
           className="flex flex-col items-center gap-4"
         >
-          <div className="w-32 h-32 rounded-full bg-blue-100 flex items-center justify-center shadow-lg border-4 border-white">
-            <User size={64} className="text-blue-600" />
+          <div className="w-20 h-20 rounded-full bg-slate-100 flex items-center justify-center shadow-md border-4 border-white">
+            <User size={40} className="text-slate-400" />
           </div>
           <div className="flex gap-2">
-            <div className="w-4 h-4 rounded-full bg-blue-400" />
-            <div className="w-12 h-4 rounded-full bg-blue-200" />
+            <div className="w-3 h-3 rounded-full bg-slate-300" />
+            <div className="w-8 h-3 rounded-full bg-slate-200" />
           </div>
         </motion.div>
 
         {/* Form */}
         <motion.div
           animate={{
-            x: step >= 3 ? 100 : 0,
-            scale: step >= 3 ? 0.8 : 1,
+            x: step >= 2 ? 50 : 0,
+            scale: step >= 2 ? 0.9 : 1,
           }}
           transition={{ duration: 0.8, ease: 'circOut' }}
           className="relative bg-white p-8 rounded-2xl shadow-xl w-64 border border-slate-100"
@@ -88,13 +88,20 @@ export default function Scene1Student() {
         </motion.div>
         
         {/* Connection to next scene */}
-        {step >= 3 && (
+        {step >= 2 && (
           <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="absolute left-full ml-8"
+            initial={{ opacity: 0, x: -50, scale: 0.8 }}
+            animate={{ opacity: 1, x: 100, scale: 1.5 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+            className="absolute left-full ml-12 flex items-center"
           >
-            <ArrowRight size={48} className="text-blue-500" />
+            <motion.div 
+              className="h-2 bg-gradient-to-r from-blue-300 to-amber-400 rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: 120 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            />
+            <ArrowRight size={48} className="text-amber-500 -ml-4 z-10" />
           </motion.div>
         )}
       </div>

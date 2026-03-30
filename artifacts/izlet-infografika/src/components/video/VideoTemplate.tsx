@@ -11,8 +11,8 @@ import Scene8AltDate from './scenes/Scene8AltDate';
 import Scene9Summary from './scenes/Scene9Summary';
 
 const SCENE_DURATIONS = {
-  scene1: 4000,
-  scene2: 4500,
+  scene1: 3000,
+  scene2: 5000,
   scene3: 4000,
   scene4: 4000,
   scene5: 4000,

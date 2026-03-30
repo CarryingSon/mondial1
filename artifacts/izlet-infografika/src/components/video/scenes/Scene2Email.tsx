@@ -20,54 +20,77 @@ export default function Scene2Email() {
       style={{ backgroundImage: `url(${import.meta.env.BASE_URL}bg-blue.png)` }}
       {...sceneTransitions.slideLeft}
     >
-      <div className="absolute inset-0 bg-blue-900/40 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-[#1E3A8A]/80 backdrop-blur-md" />
 
-      <div className="relative z-10 flex items-center gap-24">
+      <div className="relative z-10 flex items-center justify-center w-full max-w-5xl mx-auto">
         {/* Email Envelope */}
         <motion.div
+          initial={{ x: -400, y: 100, scale: 0, opacity: 0 }}
           animate={{
-            x: step >= 2 ? 300 : 0,
-            scale: step >= 3 ? 0 : 1,
-            opacity: step >= 3 ? 0 : 1,
+            x: step >= 3 ? 200 : step >= 2 ? 100 : step >= 1 ? 0 : -400,
+            y: step >= 3 ? 0 : step >= 2 ? -50 : step >= 1 ? 0 : 100,
+            scale: step >= 3 ? 0 : step >= 1 ? 1 : 0,
+            opacity: step >= 3 ? 0 : step >= 1 ? 1 : 0,
+            rotate: step >= 2 ? 10 : -15,
           }}
-          transition={{ duration: 1, ease: 'easeInOut' }}
-          className="relative"
+          transition={{ duration: 1.2, type: 'spring', bounce: 0.3 }}
+          className="absolute left-1/4 z-30"
         >
-          <motion.div
-            initial={{ scale: 0, rotate: -15 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ type: 'spring', damping: 15 }}
-            className="w-32 h-24 bg-white rounded-xl flex items-center justify-center shadow-2xl relative overflow-hidden"
-          >
+          {/* Arc Trail */}
+          {step >= 1 && step < 3 && (
+            <motion.div 
+              className="absolute right-full top-1/2 h-4 bg-gradient-to-r from-transparent to-white/40 rounded-full blur-sm"
+              initial={{ width: 0, opacity: 0 }}
+              animate={{ width: 300, opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              style={{ transformOrigin: 'right center', rotate: -10 }}
+            />
+          )}
+          
+          <div className="w-32 h-24 bg-white rounded-xl flex items-center justify-center shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 inset-x-0 h-1/2 bg-slate-100 border-b border-slate-200" style={{ clipPath: 'polygon(0 0, 100% 0, 50% 100%)' }} />
-            <Mail size={48} className="text-blue-500 relative z-10" />
-          </motion.div>
+            <Mail size={48} className="text-[#1E3A8A] relative z-10" />
+          </div>
         </motion.div>
 
         {/* Parent Avatars */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: step >= 1 ? 1 : 0, x: step >= 1 ? 0 : 50 }}
-          className="flex flex-col items-center gap-6"
+          initial={{ opacity: 0, x: 100, scale: 0.8 }}
+          animate={{ opacity: step >= 1 ? 1 : 0, x: step >= 1 ? 200 : 100, scale: step >= 3 ? 1.1 : 1 }}
+          transition={{ duration: 1, type: 'spring', bounce: 0.4 }}
+          className="relative flex flex-col items-center gap-8 z-20"
         >
-          <div className="flex gap-4">
-            <div className="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center shadow-xl border-4 border-white z-20">
-              <Users size={40} className="text-blue-600" />
+          {/* Ping Ring */}
+          {step >= 3 && (
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0.8 }}
+              animate={{ scale: 1.5, opacity: 0 }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="absolute inset-0 rounded-full border-4 border-[#F59E0B]"
+            />
+          )}
+
+          <div className="flex gap-6 relative">
+            {/* Parent 1 (Navy) */}
+            <div className="w-48 h-48 rounded-full bg-[#1E3A8A] flex items-center justify-center shadow-[0_0_40px_rgba(30,58,138,0.5)] border-8 border-[#FDFBF7] z-20 relative">
+              <Users size={80} className="text-white" />
             </div>
-            <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center shadow-xl border-4 border-white -ml-8 z-10">
-              <Users size={40} className="text-amber-600" />
+            
+            {/* Parent 2 (Amber) */}
+            <div className="w-40 h-40 rounded-full bg-[#F59E0B] flex items-center justify-center shadow-[0_0_40px_rgba(245,158,11,0.5)] border-8 border-[#FDFBF7] -ml-16 mt-8 z-10 relative">
+              <Users size={64} className="text-white" />
             </div>
           </div>
           
           {/* Reaction bubbles */}
-          <div className="flex gap-4 h-8">
+          <div className="flex gap-4 h-12">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: step >= 3 ? 1 : 0 }}
-              transition={{ type: 'spring', bounce: 0.5 }}
-              className="w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center"
+              transition={{ type: 'spring', bounce: 0.6, delay: 0.2 }}
+              className="w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center"
             >
-              <div className="w-3 h-3 bg-blue-500 rounded-full" />
+              <div className="w-4 h-4 bg-[#F59E0B] rounded-full" />
             </motion.div>
           </div>
         </motion.div>
