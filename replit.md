@@ -21,7 +21,8 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ```text
 artifacts-monorepo/
 ├── artifacts/              # Deployable applications
-│   └── api-server/         # Express API server
+│   ├── api-server/         # Express API server
+│   └── izlet-infografika/  # Animated infographic video (video-js)
 ├── lib/                    # Shared libraries
 │   ├── api-spec/           # OpenAPI spec + Orval codegen config
 │   ├── api-client-react/   # Generated React Query hooks
@@ -90,6 +91,17 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 ### `lib/api-client-react` (`@workspace/api-client-react`)
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
+
+### `artifacts/izlet-infografika` (`@workspace/izlet-infografika`)
+
+Animated video infographic for Maturantski Izlet 2026, targeting parents of graduating students. Built with React + Vite + Framer Motion. No text, no interactivity — pure icon-driven motion graphics.
+
+- Preview path: `/izlet-infografika/`
+- 9 scenes: student pre-registration → parent email → review → confirm → package → total → Zoom session → alt date → summary
+- Color palette: warm beige (#FDFBF7), deep navy (#1E3A8A), amber (#F59E0B)
+- Scene files: `src/components/video/scenes/Scene[1-9]*.tsx`
+- Video orchestration: `src/components/video/VideoTemplate.tsx`
+- Scene durations configurable in `SCENE_DURATIONS` object
 
 ### `scripts` (`@workspace/scripts`)
 
